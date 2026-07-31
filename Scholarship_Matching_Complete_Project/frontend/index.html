@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Scholarship Eligibility Matcher</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <h1>🎓 Scholarship Eligibility Matcher</h1>
+      <p>Find every scholarship you actually qualify for — ranked, in one search.</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- STEP 1: PROFILE FORM -->
+    <section id="profile-section" class="card">
+      <h2>1. Tell us about yourself</h2>
+      <form id="profile-form">
+        <div class="grid">
+          <label>
+            Name
+            <input type="text" id="name" placeholder="Your name" />
+          </label>
+          <label>
+            Annual Family Income (₹)
+            <input type="number" id="income" placeholder="e.g. 180000" required min="0" />
+          </label>
+          <label>
+            Category
+            <select id="category" required>
+              <option value="General">General</option>
+              <option value="OBC">OBC</option>
+              <option value="SC">SC</option>
+              <option value="ST">ST</option>
+              <option value="EWS">EWS</option>
+              <option value="Minority">Minority</option>
+              <option value="PwD">PwD</option>
+            </select>
+          </label>
+          <label>
+            10th Standard Marks (%)
+            <input type="number" id="tenth_pct" placeholder="e.g. 85" min="0" max="100" step="0.01" />
+          </label>
+          <label>
+            12th Standard / Qualifying Exam Marks (%)
+            <input type="number" id="twelfth_pct" placeholder="e.g. 78" required min="0" max="100" step="0.01" />
+          </label>
+          <label>
+            State of Domicile
+            <input type="text" id="state" placeholder="e.g. Tamil Nadu" required />
+          </label>
+          <label>
+            Course / Stream
+            <input type="text" id="course" placeholder="e.g. B.Tech / Engineering" required />
+          </label>
+          <label>
+            Gender
+            <select id="gender">
+              <option value="">Prefer not to say</option>
+              <option value="Female">Female</option>
+              <option value="Male">Male</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+        </div>
+        <button type="submit" class="btn-primary">Find Scholarships</button>
+      </form>
+    </section>
+
+    <!-- LOADING -->
+    <div id="loading" class="hidden">Matching your profile against all schemes…</div>
+
+    <!-- STEP 2: RESULTS -->
+    <section id="results-section" class="card hidden">
+      <div class="results-header">
+        <h2>2. Your matched scholarships</h2>
+        <button id="download-btn" class="btn-secondary">⬇ Download Summary Sheet</button>
+      </div>
+      <p id="results-summary"></p>
+      <div id="results-list"></div>
+
+      <details id="excluded-details">
+        <summary id="excluded-summary">Show schemes you're not eligible for (and why)</summary>
+        <div id="excluded-list"></div>
+      </details>
+    </section>
+
+    <!-- ALL SCHEMES BROWSE -->
+    <section class="card">
+      <h2>Browse all schemes in the database</h2>
+      <button id="browse-btn" class="btn-secondary">Show all schemes</button>
+      <div id="all-schemes-list"></div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    Mini Project — AI-Based Scholarship Eligibility Matching &amp; Auto-Fill Recommendation System
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
